@@ -11,4 +11,4 @@ main_page_soup = BeautifulSoup(main_page_data.text, 'html.parser')
 mini_site_urls = [a['href'] for a in main_page_soup.find_all('a', href=True)]
 
 for link in mini_site_urls:
-    print(links)
+    print(link)
