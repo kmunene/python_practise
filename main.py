@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup as b
 import requests
 
-url = "https://odibets.com/odileague"
+url = "odibets.com/odileague"
 
 response = requests.get(url)
 print(response.status_code)
