@@ -1,17 +1,12 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as b
 import requests
-import json
 
-main_page_url = "https://jumia.co.ke/"
+url = "https://odibets.com/odileague"
 
-main_page_data = requests.get(main_page_url)
+response = requests.get(url)
+print(response.status_code)
 
-if main_page_data.status_code != 200:
-    print("no bots mofo")
-
-main_page_soup = BeautifulSoup(main_page_data.text, 'html.parser')
-
-mini_site_urls = [a['href'] for a in main_page_soup.find_all('a', href=True)]
-
-for link in mini_site_urls:
-    print(link)
+soup = b(response.text, "html.parser")
+a = soup.find_all("div", class_="t")
+for week in a:
+  print(week.text.strip())
